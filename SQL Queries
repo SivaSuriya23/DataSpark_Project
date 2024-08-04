@@ -1,0 +1,182 @@
+-- Customer Analysis - Demographic Distribution
+	
+CREATE TABLE public.customer_demographics AS 
+SELECT 
+    "Gender",
+    EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM "Birthday") AS age,
+    "City",
+    "State",
+    "Country",
+    "Continent",
+    COUNT(*) AS num_customers
+FROM 
+    public."Customers"
+GROUP BY 
+    "Gender", 
+    EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM "Birthday"),  -- Use the same expression as in SELECT
+    "City", 
+    "State", 
+    "Country", 
+    "Continent"
+ORDER BY 
+    num_customers DESC;
+
+
+-- Purchase Patterns:
+
+CREATE TABLE public.customer_purchase_patterns AS 
+SELECT 
+    s."CustomerKey",
+    AVG(s."Quantity" * (p."Unit Price USD" - p."Unit Cost USD")) AS avg_order_value,  -- Assuming order value calculation
+    COUNT(s."Order Number") AS purchase_frequency,
+    STRING_AGG(p."Product Name", ', ') AS preferred_products
+FROM 
+    public."Sales" s
+JOIN 
+    public."Products" p ON s."ProductKey" = p."ProductKey"
+GROUP BY 
+    s."CustomerKey"
+ORDER BY 
+    avg_order_value DESC;
+
+-- Customer Segmentation:
+
+CREATE TABLE public.customer_segmentation AS
+SELECT 
+    CASE 
+        WHEN EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM "Birthday") < 30 THEN 'Young'
+        WHEN EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM "Birthday") BETWEEN 30 AND 50 THEN 'Middle-aged'
+        ELSE 'Senior'
+    END AS age_group,
+    "Gender",
+    COUNT(C."CustomerKey") AS num_customers,
+    AVG(S."Quantity" * (P."Unit Price USD" - P."Unit Cost USD")) AS avg_order_value
+FROM 
+    public."Customers" C
+JOIN 
+    public."Sales" S ON C."CustomerKey" = S."CustomerKey"
+JOIN 
+    public."Products" P ON S."ProductKey" = P."ProductKey"
+GROUP BY 
+    age_group, "Gender"
+ORDER BY 
+    num_customers DESC;
+
+-- Sales Analysis - Overall Sales Performance:
+
+CREATE TABLE public.overall_sales_performance AS
+SELECT 
+    DATE_TRUNC('month', "Order Date") AS month,
+    SUM("Quantity" * ("Unit Price USD" - "Unit Cost USD")) AS total_sales
+FROM 
+    public."Sales" S
+JOIN 
+    public."Products" P ON S."ProductKey" = P."ProductKey"
+GROUP BY 
+    month
+ORDER BY 
+    month;
+
+
+-- Sales by Product:
+
+CREATE TABLE public.sales_by_product AS
+SELECT 
+    P."Product Name",
+    SUM(S."Quantity") AS total_quantity_sold,
+    SUM(S."Quantity" * (P."Unit Price USD" - P."Unit Cost USD")) AS total_revenue
+FROM 
+    public."Sales" S
+JOIN 
+    public."Products" P ON S."ProductKey" = P."ProductKey"
+GROUP BY 
+    P."Product Name"
+ORDER BY 
+    total_revenue DESC;
+
+
+-- Sales by Stores:
+
+CREATE TABLE public.sales_by_stores AS
+SELECT 
+    S."StoreKey",
+    SUM(S."Quantity" * (P."Unit Price USD" - P."Unit Cost USD")) AS total_sales
+FROM 
+    public."Sales" S
+JOIN 
+    public."Products" P ON S."ProductKey" = P."ProductKey"
+GROUP BY 
+    S."StoreKey"
+ORDER BY 
+    total_sales DESC;
+
+
+
+
+-- Sales by Currency:
+
+CREATE TABLE public.sales_by_currency AS
+SELECT 
+    S."Currency Code" AS currency_code,
+    SUM(S."Quantity" * (P."Unit Price USD" - P."Unit Cost USD") * C."Exchange") AS total_sales_in_usd
+FROM 
+    public."Sales" S
+JOIN 
+    public."Products" P ON S."ProductKey" = P."ProductKey"
+JOIN 
+    public."Exchange_Rates" C ON S."Currency Code" = C."Currency"
+GROUP BY 
+    S."Currency Code"
+ORDER BY 
+    total_sales_in_usd DESC;
+
+
+
+-- Product Analysis - Product Popularity:
+
+CREATE TABLE public.product_popularity AS
+SELECT 
+    P."Product Name" AS product_name,
+    SUM(S."Quantity") AS total_quantity_sold
+FROM 
+    public."Sales" S
+JOIN 
+    public."Products" P ON S."ProductKey" = P."ProductKey"
+GROUP BY 
+    P."Product Name"
+ORDER BY 
+    total_quantity_sold DESC;
+
+
+
+-- Profitability Analysis:
+
+CREATE TABLE public.profitability_analysis AS
+SELECT 
+    P."Product Name" AS product_name,
+    AVG(P."Unit Price USD" - P."Unit Cost USD") AS avg_profit_margin
+FROM 
+    public."Products" P
+GROUP BY 
+    P."Product Name"
+ORDER BY 
+    avg_profit_margin DESC;
+
+
+
+-- Category Analysis:
+
+CREATE TABLE public.category_analysis AS
+SELECT 
+    P."Category" AS category,
+    SUM(S."Quantity" * P."Unit Price USD") AS total_revenue
+FROM 
+    public."Sales" S
+JOIN 
+    public."Products" P ON S."ProductKey" = P."ProductKey"
+GROUP BY 
+    P."Category"
+ORDER BY 
+    total_revenue DESC;
+
+
