@@ -7,10 +7,10 @@ The Global Electronics EDA project aims to uncover actionable insights from vari
 
 ## Objectives
 
-* **Customer Analysis**: Understand customer demographics, purchasing patterns, and segment customers to identify key groups.
-* **Sales Analysis**: Analyze overall sales performance, evaluate sales by product, store, and currency, and identify trends and seasonality.
-* **Product Analysis**: Assess product popularity, profitability, and performance across different categories.
-* **Store Analysis**: Evaluate store performance, assess geographical sales patterns, and optimize store operations.
+- **Customer Analysis**: Understand customer demographics, purchasing patterns, and segment customers to identify key groups.
+- **Sales Analysis**: Analyze overall sales performance, evaluate sales by product, store, and currency, and identify trends and seasonality.
+- **Product Analysis**: Assess product popularity, profitability, and performance across different categories.
+- **Store Analysis**: Evaluate store performance, assess geographical sales patterns, and optimize store operations.
 
 ## Methodology
 
