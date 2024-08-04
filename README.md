@@ -44,7 +44,7 @@ The Global Electronics EDA project aims to uncover actionable insights from vari
 - **Data Visualization**: Power BI
 - **Database Management**: SQL Database
 
-## Power BI Dashboards Screenshots
+## Power BI Dashboard Screenshots
 
 ![Dashboard 1](https://github.com/user-attachments/assets/b672b336-cf71-4e7b-b618-3724d1a80314)
 
