@@ -46,23 +46,22 @@ The Global Electronics EDA project aims to uncover actionable insights from vari
 
 ## Power BI Dashboard Screenshots
 
-![Dashboard 1](https://github.com/user-attachments/assets/b672b336-cf71-4e7b-b618-3724d1a80314)
+![1](https://github.com/user-attachments/assets/c17ff3c3-bd2b-40b3-918e-0acbc75ac898)
 
-![Dadhboard 2](https://github.com/user-attachments/assets/3226e574-7a8d-4ce5-94c1-688f7ce38d88)
+![2](https://github.com/user-attachments/assets/990c632e-f239-4bad-8c03-de3d71216180)
 
-![Dashboard 3](https://github.com/user-attachments/assets/33ca5632-23fa-4f9f-aa5d-54cf3a7cc86d)
+![3](https://github.com/user-attachments/assets/0a63a20e-bcd0-4e26-b4b8-b2c990eb639f)
 
-![Dashboard 4](https://github.com/user-attachments/assets/555c8624-7d9a-48ec-90a8-94696a25f876)
+![4](https://github.com/user-attachments/assets/14094975-c012-4d27-b415-47f2bf5f64d3)
 
-![Dashboard 5](https://github.com/user-attachments/assets/4da9eb3f-09ea-4ed1-affa-5c94bfb483f0)
+![5](https://github.com/user-attachments/assets/f6a622c5-1281-41d9-9300-cf6185f75f8c)
 
-![Dashboard 6](https://github.com/user-attachments/assets/2ae52e4f-ef96-4488-a9b0-36977fde8577)
+![6](https://github.com/user-attachments/assets/7ff821df-8cdb-4162-83a5-03f00d86a7b9)
 
-![Dashboard 7](https://github.com/user-attachments/assets/c2f7e74f-fc7b-4001-854b-5e1991cb5d11)
+![7](https://github.com/user-attachments/assets/58a1cb9e-5726-4070-9cd9-4460a16cdaf9)
 
-![Dashboard 8](https://github.com/user-attachments/assets/d46b9b78-a0de-4bf5-9a09-61deedbcdb71)
+![8](https://github.com/user-attachments/assets/1b2220bd-f425-45db-b3b4-a418d3106aac)
 
-![Dashboard 9](https://github.com/user-attachments/assets/39926e85-022b-49b5-867e-1d905abf7880)
+![9](https://github.com/user-attachments/assets/32b41973-f3bb-45f4-acf1-745da80b68fa)
 
-![Dashboard 10](https://github.com/user-attachments/assets/bcd4f685-81b3-4580-a65c-ebc89a0d09ef)
-
+![10](https://github.com/user-attachments/assets/a7fba17e-36f9-4c2b-9f03-5cbeeab1aa55)
